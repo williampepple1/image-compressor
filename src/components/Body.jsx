@@ -62,43 +62,45 @@ const Body = () => {
   return (
     <div className="flex w-screen justify-center flex-col space-y-24 items-center h-screen ">
       <h1 className="mt-4 text-2xl font-extrabold text-slate-700">Compress Jpeg/PNG pictures</h1>    
-        <div className="flex flex-row justify-between ">
+        <div className=" grid grid-cols-3 justify-between ">
           <div >
 
           {
             fileToBeCompressed.uploadImage ? (
-            <img className="w-48" src={fileToBeCompressed.originalLink}/>
+            <img className="h-1/2 mx-auto" src={fileToBeCompressed.originalLink}/>
             
-            ) : (<img className="w-24" src="https://png.pngtree.com/element_our/20190601/ourmid/pngtree-file-download-icon-image_1344466.jpg"/>)
+            ) : (<img className="h-1/2 mx-auto " src="https://png.pngtree.com/element_our/20190601/ourmid/pngtree-file-download-icon-image_1344466.jpg"/>)
           }
           <div className="flex justify-content">
           <input
             type="file"
             accept="image/*"
-            className="mt-2 btn btn-dark w-75"
+            className="mt-2 w-64 text-xs"
             onChange={e => handle(e)}
           />
         </div>
           </div>
           <div >
           {fileToBeCompressed.outputFileName ? (
-            <button type="button" className=" bg-white h-12 w-20 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md flex  justify-center text-center" onClick={e => onClick(e)}>Compress </button>
+            <button type="button" className=" bg-white h-12 w-20  mx-auto text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md flex  justify-center text-center" onClick={e => onClick(e)}>Compress </button>
           ) : (<div className="bg-transparent"></div>)}
           
           </div>
           <div className="flex flex-row">
-          
+          <img className=" relative h-1/2" src={fileToBeCompressed.compressedLink}/>
+          <div>
           {fileToBeCompressed.clicked ? (
             <div className="flex justify-center items-center">
             <a
               href={fileToBeCompressed.compressedLink}
-              className="bg-white h-12 w-20 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md flex  justify-center text-center"
+              className="bg-white my-8 h-12 w-20 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md  "
               download={fileToBeCompressed.outputFileName}
             >
             Download
             </a>
             
             </div>) : (<div></div>)}
+            </div>
           </div>
       
       </div>
