@@ -60,8 +60,8 @@ const Body = () => {
 
 
   return (
-    <div className="flex w-screen justify-center flex-col space-y-24 items-center h-screen text-2xl font-extrabold text-slate-700">
-      <h1 className="mt-4">Compress Jpeg/PNG pictures</h1>    
+    <div className="flex w-screen justify-center flex-col space-y-24 items-center h-screen ">
+      <h1 className="mt-4 text-2xl font-extrabold text-slate-700">Compress Jpeg/PNG pictures</h1>    
         <div className="flex flex-row justify-between ">
           <div >
 
@@ -80,20 +80,19 @@ const Body = () => {
           />
         </div>
           </div>
-          <div  className="inline-block rounded-md border border-transparent bg-white py-2 px-4 text-base font-medium text-gray-600 hover:bg-gray-50"
-          >
+          <div >
           {fileToBeCompressed.outputFileName ? (
-            <button type="button" className="bg-red" onClick={e => onClick(e)}>Compress </button>
-          ) : (<div></div>)}
+            <button type="button" className=" bg-white h-12 w-20 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md flex  justify-center text-center" onClick={e => onClick(e)}>Compress </button>
+          ) : (<div className="bg-transparent"></div>)}
           
           </div>
-          <div>
-          <img className="w-24" src={fileToBeCompressed.compressedLink}/>
+          <div className="flex flex-row">
+          
           {fileToBeCompressed.clicked ? (
             <div className="flex justify-center items-center">
             <a
               href={fileToBeCompressed.compressedLink}
-              className="mt-2"
+              className="bg-white h-12 w-20 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-md flex  justify-center text-center"
               download={fileToBeCompressed.outputFileName}
             >
             Download
